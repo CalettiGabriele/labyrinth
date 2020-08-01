@@ -57,6 +57,19 @@ function scenario1 () {
     personaggio = game.createSprite(0, 4)
     portale = game.createSprite(4, 4)
 }
+// inizializzo lo scenario 1, quindi crea tutti i blocchi dei muri, il personaggio e il portale
+function scenario4 () {
+    blocco1 = game.createSprite(2, 4)
+    blocco2 = game.createSprite(0, 3)
+    blocco3 = game.createSprite(2, 3)
+    blocco4 = game.createSprite(3, 3)
+    blocco5 = game.createSprite(3, 2)
+    blocco6 = game.createSprite(1, 1)
+    blocco7 = game.createSprite(3, 0)
+    blocco8 = game.createSprite(4, 0)
+    personaggio = game.createSprite(0, 4)
+    portale = game.createSprite(3, 4)
+}
 function lampeggia (sprite: game.LedSprite, x: number, y: number) {
     x = sprite.get(LedSpriteProperty.X)
     y = sprite.get(LedSpriteProperty.Y)
@@ -108,6 +121,9 @@ basic.forever(function () {
     if (scena == 3) {
         lampeggia(portale, 0, 0)
     }
+    if (scena == 4) {
+        lampeggia(portale, 3, 4)
+    }
     if (personaggio.isTouching(portale)) {
         basic.showIcon(IconNames.Yes)
         pulisci()
@@ -117,6 +133,9 @@ basic.forever(function () {
         }
         if (scena == 3) {
             scenario3()
+        }
+        if (scena == 4) {
+            scenario4()
         }
     }
 })
