@@ -1,3 +1,15 @@
+// inizializzo lo scenario 1, quindi crea tutti i blocchi dei muri, il personaggio e il portale
+function scenario5 () {
+    blocco1 = game.createSprite(1, 4)
+    blocco2 = game.createSprite(1, 3)
+    blocco3 = game.createSprite(3, 3)
+    blocco4 = game.createSprite(3, 2)
+    blocco5 = game.createSprite(1, 1)
+    blocco6 = game.createSprite(3, 1)
+    blocco7 = game.createSprite(1, 0)
+    personaggio = game.createSprite(0, 4)
+    portale = game.createSprite(4, 2)
+}
 function pulisci () {
     blocco1.delete()
     blocco2.delete()
@@ -99,9 +111,9 @@ function scenario3 () {
 }
 let y = 0
 let x = 0
+let blocco8: game.LedSprite = null
 let portale: game.LedSprite = null
 let personaggio: game.LedSprite = null
-let blocco8: game.LedSprite = null
 let blocco7: game.LedSprite = null
 let blocco6: game.LedSprite = null
 let blocco5: game.LedSprite = null
@@ -124,6 +136,9 @@ basic.forever(function () {
     if (scena == 4) {
         lampeggia(portale, 3, 4)
     }
+    if (scena == 5) {
+        lampeggia(portale, 4, 2)
+    }
     if (personaggio.isTouching(portale)) {
         basic.showIcon(IconNames.Yes)
         pulisci()
@@ -136,6 +151,9 @@ basic.forever(function () {
         }
         if (scena == 4) {
             scenario4()
+        }
+        if (scena == 5) {
+            scenario5()
         }
     }
 })
